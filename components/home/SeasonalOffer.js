@@ -15,9 +15,10 @@ export default function SeasonalOffer({ offer = site.seasonalOffer }) {
                 {offer.title}
               </div>
               <div className="flex gap-4">
-                <Button href={offer.ctaHref}>{offer.ctaLabel}</Button>
+                <Button href={offer.ctaHref}> {offer.ctaLabel} </Button>
                 <Button href="#packages" variant="secondary">
-                  See all packages
+                  {" "}
+                  See all packages{" "}
                 </Button>
               </div>
             </div>

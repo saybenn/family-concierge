@@ -4,37 +4,33 @@ import { site } from "@/lib/siteConfig";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden py-12">
-      {/* Background hero image */}
-      <div className="absolute inset-0 -z-10">
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero.png"
-          alt="Family Concierge — calm organized home"
+          alt=""
           fill
-          className="object-cover brightness-90"
+          className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/60" /> {/* was /40 */}
       </div>
-
-      <div className="container py-20 md:py-32 text-white">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-semibold leading-tight text-app-text">
-            Buy back your time.
-          </h1>
-          <p className="mt-4 text-lg text-app-muted">
-            Book a Family Concierge for date nights, home resets, errands, and
-            more.
-          </p>
-          <div className="mt-8 flex gap-4">
-            <Button href="#packages">See Packages</Button>
-            <a
-              id="book"
-              href={site.booking.calendlyEventUrl}
-              className="px-4 py-2 border border-white/20 rounded-md"
-            >
-              Book Now
-            </a>
+      <div className="relative z-10">
+        <div className=" px-12 py-16 md:py-32  flex items-end md:items-center">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl md:text-5xl font-semibold leading-tight text-white">
+              Buy back your time.
+            </h1>
+            <p className="mt-4 text-lg text-gray-200">
+              Book a Family Concierge for date nights, home resets, errands, and
+              more.
+            </p>
+            <div className="mt-8 flex gap-4">
+              <Button href="#packages">See Packages</Button>
+              <Button href={site.booking.calendlyEventUrl} variant="secondary">
+                Book Now
+              </Button>
+            </div>
           </div>
         </div>
       </div>

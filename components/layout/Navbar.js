@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Button from "../ui/Button";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-[color:rgba(18,22,28,0.6)] border-b border-white/5">
+    <header className="sticky top-0 z-40 bg-[#0B0E12]/90 backdrop-blur border-b border-white/10">
       <nav className="container flex h-14 items-center justify-between">
         <Link href="/" className="font-semibold">
           Family Concierge
@@ -10,12 +11,7 @@ export default function Navbar() {
         <div className="flex items-center gap-6 text-sm">
           <Link href="#packages">Packages</Link>
           <Link href="#faq">FAQ</Link>
-          <a
-            href="#book"
-            className="px-3 py-1.5 rounded-md bg-[var(--primary)] text-black font-medium"
-          >
-            Book Now
-          </a>
+          <Button href="#book">Book Now</Button>
         </div>
       </nav>
     </header>
