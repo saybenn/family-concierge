@@ -11,10 +11,10 @@ export default function SeasonalOffer({ offer = site.seasonalOffer }) {
       <div className="container">
         {" "}
         {/* isolate from parent layout */}
-        <div className="w-full overflow-hidden rounded-2xl border border-white/10 bg-[var(--surface)]">
+        <div className="w-full overflow-hidden rounded-2xl border border-white/10 bg-[#12161C]">
           <div className="p-6 md:p-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div className="text-lg md:text-xl font-semibold text-[var(--text)]">
+              <div className="text-lg md:text-xl font-semibold text-white">
                 {offer.title}
               </div>
               <div className="flex gap-4">

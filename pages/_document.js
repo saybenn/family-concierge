@@ -4,21 +4,31 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Inter:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
+        {/* Mobile viewport */}
         <meta
           name="viewport"
-          content="width=device=width, initial-scale=1, viewport-fit=cover"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+        {/* Inline variables so the page has colors even if theme.css fails */}
+        <style
+          // DO NOT remove – this fixes iPhone “white page” when CSS vars are missing
+          dangerouslySetInnerHTML={{
+            __html: `
+:root{
+  color-scheme: dark;
+  --bg:#0B0E12;
+  --surface:#12161C;
+  --text:#E8ECF1;
+  --muted:#A7B0BB;
+  --primary:#4CC38A;
+  --accent:#7C91FF;
+}
+`,
+          }}
         />
       </Head>
-      <body className="bg-[var(--bg)] text-[var(--text)]">
+      {/* Hard hex fallbacks + use vars when present */}
+      <body className="bg-[#0B0E12] text-[#E8ECF1]">
         <Main />
         <NextScript />
       </body>

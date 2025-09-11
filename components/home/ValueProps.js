@@ -26,7 +26,7 @@ export default function ValueProps({
             key={i}
             className="rounded-2xl border border-white/10 bg-[var(--surface)] p-5"
           >
-            <div className="text-lg font-medium">{v.title}</div>
+            <div className="text-lg font-medium text-white">{v.title}</div>
             <p className="mt-2 text-[var(--muted)] text-sm">{v.blurb}</p>
           </div>
         ))}
