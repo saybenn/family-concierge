@@ -9,7 +9,7 @@ export default function BookingCTA({
     <section className="container py-12 md:py-16">
       <div className="rounded-2xl border border-white/10 bg-[var(--surface)] p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
-          <div className="text-xl font-semibold">
+          <div className="text-xl font-semiboldtext-white">
             Ready to buy back your time?
           </div>
           <p className="text-[var(--muted)] text-sm mt-1">

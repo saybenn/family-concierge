@@ -19,10 +19,10 @@ export default function Hero() {
 
       <div className="container py-20 md:py-32 text-white">
         <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight text-app-text">
             Buy back your time.
           </h1>
-          <p className="mt-4 text-lg text-gray-200">
+          <p className="mt-4 text-lg text-app-muted">
             Book a Family Concierge for date nights, home resets, errands, and
             more.
           </p>

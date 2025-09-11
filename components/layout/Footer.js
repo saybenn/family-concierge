@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container py-10 grid gap-6 md:grid-cols-3">
         <div>
           <div className="font-semibold">{site.brand}</div>
-          <div className="text-sm text-[var(--muted)] mt-2">
+          <div className="text-sm text-app-muted mt-2">
             Serving: {site.serviceArea.join(", ")}
           </div>
         </div>

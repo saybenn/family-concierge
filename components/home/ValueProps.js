@@ -24,10 +24,10 @@ export default function ValueProps({
         {items.map((v, i) => (
           <div
             key={i}
-            className="rounded-2xl border border-white/10 bg-[var(--surface)] p-5"
+            className="rounded-2xl border border-subtle bg-app-surface p-5"
           >
-            <div className="text-lg font-medium text-white">{v.title}</div>
-            <p className="mt-2 text-[var(--muted)] text-sm">{v.blurb}</p>
+            <div className="text-lg font-medium text-app-text">{v.title}</div>
+            <p className="mt-2 text-app-muted text-sm">{v.blurb}</p>
           </div>
         ))}
       </div>
