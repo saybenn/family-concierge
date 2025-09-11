@@ -5,7 +5,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 backdrop-blur bg-[color:rgba(18,22,28,0.6)] border-b border-white/5">
       <nav className="container flex h-14 items-center justify-between">
         <Link href="/" className="font-semibold">
-          Family Concierge
+          Family Concierg
         </Link>
         <div className="flex items-center gap-6 text-sm">
           <Link href="#packages">Packages</Link>
