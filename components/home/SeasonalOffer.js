@@ -11,13 +11,12 @@ export default function SeasonalOffer({ offer = site.seasonalOffer }) {
       <div className="container">
         {" "}
         {/* isolate from parent layout */}
-        <div className="w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-black/20 to-black/10">
+        <div className="w-full overflow-hidden rounded-2xl border border-white/10 bg-[var(--surface)]">
           <div className="p-6 md:p-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div className="text-lg md:text-xl font-medium">
+              <div className="text-lg md:text-xl font-semibold text-[var(--text)]">
                 {offer.title}
               </div>
-
               <div className="flex gap-4">
                 <Button href={offer.ctaHref}>{offer.ctaLabel}</Button>
                 <a

@@ -1,10 +1,15 @@
 :root {
+  color-scheme: dark;
   --bg: #0b0e12;
   --surface: #12161c;
   --text: #e8ecf1;
   --muted: #a7b0bb;
   --primary: #4cc38a; /* calm green */
   --accent: #7c91ff; /* soft blue */
+}
+body {
+  background-color: #0b0e12;
+  color: #e8ecf1;
 }
 
 * {
