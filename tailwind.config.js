@@ -1,30 +1,38 @@
-// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
-    "./lib/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./pages/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./lib/**/*.{js,jsx,ts,tsx}",
   ],
-  darkMode: "class", // or "media"; we’ll force dark via a class
+  darkMode: "class",
+
+  // ✅ In v4, keep non-token settings like `container` here if you use <Container />
   theme: {
-    extend: {
-      colors: {
-        app: {
-          bg: "#0B0E12",
-          surface: "#12161C",
-          text: "#E8ECF1",
-          muted: "#A7B0BB",
-          primary: "#4CC38A",
-          accent: "#7C91FF",
-        },
-      },
-      boxShadow: {
-        card: "0 10px 30px rgba(0,0,0,.2)",
-      },
-      borderColor: {
-        subtle: "rgba(255,255,255,0.10)",
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "1rem",
+        md: "2rem",
+        lg: "2rem",
+        xl: "2.5rem",
+        "2xl": "3rem",
       },
     },
+
+    // ❌ Don’t define tokens (colors/spacing/fonts/etc.) here in v4.
+    // ❌ All of this moved to CSS `@theme` in globals.css.
+    // extend: {
+    //   fontFamily: {...},
+    //   spacing: {...},
+    //   colors: {...},
+    //   boxShadow: {...},
+    //   borderColor: {...},
+    //   borderRadius: {...},
+    // },
   },
+
   plugins: [],
 };

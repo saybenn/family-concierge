@@ -1,38 +1,106 @@
 @import "tailwindcss";
 
-/* FORCE DARK THEME (always) */
-:root {
-  color-scheme: dark; /* makes iOS UI + form controls dark */
-  --background: #0b0e12; /* app bg */
-  --foreground: #e8ecf1; /* main text */
-  --surface: #12161c; /* cards/tiles */
-  --muted: #a7b0bb; /* secondary text */
-  --primary: #4cc38a; /* CTA green */
-}
-
-/* OPTIONAL: map tokens to Tailwind v4 @theme so you can use bg-background etc. */
+/* ===========================
+   Tailwind v4 Design Tokens
+   =========================== */
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-muted: var(--muted);
-  --color-primary: var(--primary);
+  /* -------- Fonts -------- */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+
+  /* -------- Spacing (custom) -------- */
+  --spacing-xs: 0.25rem; /* 4px  */
+  --spacing-sm: 0.5rem; /* 8px  */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+  --spacing-4xl: 6rem; /* 96px */
+
+  /* -------- Brand (LIGHT default) -------- */
+  --color-brand-charcoal: #0f141a;
+  --color-brand-ink: #0b1220;
+  --color-brand-cream: #f6f4ef;
+  --color-brand-paper: #fbfaf7;
+  --color-brand-gold: #c8a24d;
+
+  /* Semantic aliases (optional, convenient) */
+  --color-primary: var(--color-brand-gold);
+  --color-success: #4cc38a;
+  --color-info: #7c91ff;
+  --color-warning: #f4b400;
+  --color-danger: #e5484d;
+
+  /* -------- App (DARK palette for .dark mode) -------- */
+  --color-app-bg: #0b0e12;
+  --color-app-surface: #12161c;
+  --color-app-text: #e8ecf1;
+  --color-app-muted: #a7b0bb;
+  --color-app-primary: #4cc38a;
+  --color-app-accent: #7c91ff;
+  --color-app-warning: #f4b400;
+
+  /* -------- Radii & Shadows (optional tokens) -------- */
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.25rem;
+
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+/* ===========================
+   Base document styling
+   (LIGHT is default)
+   =========================== */
+
+:root {
+  color-scheme: light; /* default UI scheme */
 }
 
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  box-sizing: border-box;
 }
 
-body {
-  background: var(--background); /* dark by default */
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html,
+body,
+#__next {
+  max-width: 100%;
+  overflow-x: hidden;
 }
+
+/* Default (light) surface */
+body {
+  background: var(--color-brand-paper);
+  color: var(--color-brand-charcoal);
+  font-family: var(--font-sans);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Optional helper: a container class if you use it outside Tailwind's container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 1rem;
+}
+
+/* ===========================
+   DARK MODE (toggle with .dark on <html> or <body>)
+   =========================== */
+
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background: var(--color-app-bg);
+  color: var(--color-app-text);
+}
+
+/* Example utility-ish mappings if you want CSS, not utilities, in some places */
+/* .card { background: var(--color-app-surface); box-shadow: var(--shadow-soft); border-radius: var(--radius-2xl); } */
 
