@@ -45,7 +45,7 @@ export default function Footer({
             ))}
           </ul>
 
-          {showBookCta && (
+          {/* {showBookCta && (
             <div className="mt-sm md:mt-0">
               <CTAButton
                 href={
@@ -60,7 +60,7 @@ export default function Footer({
                 Book Now
               </CTAButton>
             </div>
-          )}
+          )} */}
         </div>
 
         {/* MAIN GRID */}

@@ -21,7 +21,7 @@
   /* -------- Brand (LIGHT default) -------- */
   --color-brand-charcoal: #0f141a;
   --color-brand-ink: #0b1220;
-  --color-brand-cream: #f6f4ef;
+  --color-brand-cream: #faf1dcff;
   --color-brand-paper: #fbfaf7;
   --color-brand-gold: #c8a24d;
 
@@ -36,7 +36,7 @@
   --color-app-bg: #0b0e12;
   --color-app-surface: #12161c;
   --color-app-text: #e8ecf1;
-  --color-app-muted: #a7b0bb;
+  --color-app-muted: #72777eff;
   --color-app-primary: #4cc38a;
   --color-app-accent: #7c91ff;
   --color-app-warning: #f4b400;
@@ -56,7 +56,7 @@
    =========================== */
 
 :root {
-  color-scheme: dark; /* default UI scheme */
+  color-scheme: light; /* default UI scheme */
 }
 
 html {

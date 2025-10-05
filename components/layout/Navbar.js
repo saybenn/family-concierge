@@ -7,7 +7,21 @@ const NAV_LINKS = [
   { href: "#packages", label: "Packages" },
   { href: "#faq", label: "FAQ" },
 ];
+const base =
+  "sticky top-0 z-50 border-b transition-colors md:supports-[backdrop-filter]:backdrop-blur";
 
+const atTop =
+  // On-hero state: transparent-ish, LIGHT text
+  "bg-brand-ink/40 text-brand-paper border-transparent " +
+  // If backdrop-filter isn’t supported, use a light translucent paper instead of dark
+  "supports-[not(backdrop-filter:blur(0px))]:bg-brand-paper/85 " +
+  // Slight ring for separation on iOS
+  "ring-0 supports-[not(backdrop-filter:blur(0px))]:ring-1 supports-[not(backdrop-filter:blur(0px))]:ring-black/5";
+
+const scrolledCls =
+  // Off-hero state: light surface, DARK text
+  "bg-brand-ink/65 text-brand-paper border-black/5 " +
+  "supports-[backdrop-filter]:backdrop-blur";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -45,14 +59,7 @@ export default function Navbar() {
           scrolled ? "shadow-soft" : "",
         ].join(" ")}
       >
-        <div
-          className={[
-            "backdrop-blur transition-colors border-b",
-            scrolled
-              ? "bg-brand-paper/95 text-brand-charcoal dark:bg-app-bg/90 dark:text-app-text border-line-faint"
-              : "bg-brand-ink/50 text-brand-charcoal dark:text-app-text border-transparent",
-          ].join(" ")}
-        >
+        <div className={[base, scrolled ? scrolledCls : atTop].join(" ")}>
           <nav
             aria-label="Primary"
             className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
