@@ -7,7 +7,7 @@ import { h1XL, bodyBase } from "@/components/ui/classnames";
 
 // Chip colors (one map only)
 const CHIP_COLORS = {
-  Parents: "bg-green-100/70 text-green-900 ring-green-300/50",
+  Parents: "bg-green-100/60 text-green-800/80 ring-green-300/10",
   "Busy Professionals": "bg-blue-100/70 text-blue-900 ring-blue-300/50",
   Caregivers: "bg-amber-100/70 text-amber-900 ring-amber-300/50",
 };
