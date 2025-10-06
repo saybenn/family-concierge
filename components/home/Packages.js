@@ -70,7 +70,8 @@ export default function Packages({ items }) {
             return (
               <article
                 key={p.slug}
-                className={`group ${cardLight} min-w-0 transition-shadow`}
+                className={`group ${cardLight} min-w-0 transition-shadow
+                            dark:bg-brand=paper dark:ring-white/10`}
                 aria-labelledby={`${p.slug}-title`}
                 data-package={p.slug}
               >
@@ -93,11 +94,11 @@ export default function Packages({ items }) {
                 {/* Title & outcome */}
                 <h3
                   id={`${p.slug}-title`}
-                  className="mt-md text-lg font-semibold text-brand-charcoal"
+                  className="mt-md text-lg font-semibold text-brand-charcoal dark:text-brand-charcoal"
                 >
                   {p.name}
                 </h3>
-                <p className="mt-xs text-brand-charcoal/70 line-clamp-3">
+                <p className="mt-xs text-brand-charcoal/70 dark:text-app-muted line-clamp-3">
                   {p.outcome}
                 </p>
 
@@ -138,7 +139,7 @@ export default function Packages({ items }) {
                 </div>
 
                 {p.footnote && (
-                  <p className="mt-xs text-xs text-brand-charcoal/60">
+                  <p className="mt-xs text-xs text-brand-charcoal/60 dark:text-app-muted">
                     {p.footnote}
                   </p>
                 )}

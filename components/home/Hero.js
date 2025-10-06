@@ -84,7 +84,8 @@ export default function Hero({
                   key={p}
                   className={[
                     "rounded-full px-3 py-1 text-xs font-medium ring-1 backdrop-blur",
-                    CHIP_COLORS[p] || "bg-white/10 text-white/90 ring-white/20",
+                    CHIP_COLORS[p] ||
+                      "bg-white/10 text-white/90 ring-white/20 dark:ring-white/20",
                   ].join(" ")}
                 >
                   {p}

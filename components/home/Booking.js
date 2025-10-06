@@ -44,25 +44,30 @@ export default function BookingCTA({
     }
   })();
 
+  // components/home/BookingCTA.js
+
   return (
     <section
       id={id}
-      className="pb-4xl bg-app-surface text-app-text"
+      className="py-3xl md:py-4xl bg-brand-paper text-brand-charcoal dark:bg-app-surface dark:text-app-text"
       aria-labelledby={`${id}-heading`}
     >
       <div className={containerX}>
-        {/* Single center block (no tight max-width) */}
         <div className="text-center">
           <h2
             id={`${id}-heading`}
-            className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-app-text leading-tight text-balance"
+            className="font-display text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-balance
+                       text-brand-charcoal dark:text-app-text"
           >
             {title}
           </h2>
-          <p className="mt-sm text-app-muted">{subline}</p>
+
+          <p className="mt-sm text-brand-charcoal/70 dark:text-app-muted">
+            {subline}
+          </p>
 
           {!!trustBullets?.length && (
-            <p className="mt-md text-sm text-app-muted">
+            <p className="mt-md text-sm text-brand-charcoal/60 dark:text-app-muted">
               {trustBullets.join(" • ")}
             </p>
           )}
@@ -80,7 +85,8 @@ export default function BookingCTA({
             {phone && (
               <a
                 href={`tel:${phone}`}
-                className="text-sm underline underline-offset-4 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary/40 rounded text-app-text/90"
+                className="text-sm underline underline-offset-4 hover:opacity-90 focus:outline-none
+                           focus:ring-2 focus:ring-primary/40 rounded text-brand-charcoal dark:text-app-text"
                 data-cta="call"
                 data-location="footer-cta"
               >

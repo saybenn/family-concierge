@@ -87,53 +87,50 @@ export default function HowItWorks({
   if (!steps?.length) return null;
 
   return (
-    <section id={id} className={sectionDark} aria-labelledby={`${id}-heading`}>
+    <section
+      id={id}
+      className="py-3xl md:py-4xl bg-brand-cream text-brand-charcoal dark:bg-app-surface dark:text-app-text"
+      aria-labelledby={`${id}-heading`}
+    >
       <div className={containerX}>
         <header className="text-center mb-xl">
           <h2 id={`${id}-heading`} className={h2L}>
             {title}
           </h2>
-          <p className={metaDimDark}>{subline}</p>
+          <p className="text-brand-charcoal/70 dark:text-app-muted">
+            {subline}
+          </p>
         </header>
 
-        {/* Mobile: vertical timeline; Desktop: 2/4 column grid */}
-        <ol
-          className="grid gap-lg min-w-0 sm:grid-cols-2 lg:grid-cols-4"
-          data-module="how-it-works"
-        >
+        <ol className="grid gap-lg min-w-0 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, idx) => {
             const Icon = s.icon ? Icons[s.icon] : null;
             return (
               <li
                 key={s.analyticsId || s.title || idx}
-                className="pl-8 
-                  group relative rounded-[var(--radius-2xl)]
-                  bg-app-surface ring-1 ring-white/10
+                className="
+                  pl-8 group relative rounded-[var(--radius-2xl)]
+                  bg-white/70 dark:bg-app-surface
+                  ring-1 ring-black/10 dark:ring-white/10
                   p-md min-w-0
                   transition-shadow hover:shadow-[var(--shadow-soft)]
                 "
-                data-step={idx + 1}
-                data-analytic={s.analyticsId || ""}
               >
-                {/* Mobile timeline connector */}
                 <span
                   aria-hidden="true"
-                  className="lg:hidden absolute left-5 top-0 h-full w-px bg-white/10"
+                  className="lg:hidden absolute left-5 top-0 h-full w-px bg-black/10 dark:bg-white/10"
                 />
-
-                {/* Step badge + label + (optional) icon */}
                 <div className="relative z-10 flex items-center gap-2">
                   <span
-                    className="
-                      inline-flex h-8 w-8 shrink-0 items-center justify-center
-                      rounded-full bg-white/10 text-app-text ring-1 ring-white/20
-                      font-semibold
-                    "
-                    aria-hidden="true"
+                    className="inline-flex h-8 w-8 shrink-0 items-center justify-center
+                                   rounded-full bg-black/5 text-brand-charcoal ring-1 ring-black/10
+                                   dark:bg-white/10 dark:text-app-text dark:ring-white/20 font-semibold"
                   >
                     {idx + 1}
                   </span>
-                  <span className="text-xs text-app-muted">Step {idx + 1}</span>
+                  <span className="text-xs text-brand-charcoal/60 dark:text-app-muted">
+                    Step {idx + 1}
+                  </span>
                   {Icon && (
                     <Icon
                       aria-hidden="true"
@@ -142,36 +139,31 @@ export default function HowItWorks({
                   )}
                 </div>
 
-                {/* Title */}
-                <h3 className="mt-sm text-lg font-semibold text-app-text">
+                <h3 className="mt-sm text-lg font-semibold text-brand-charcoal dark:text-app-text">
                   {s.title}
                 </h3>
+                <p className="mt-xs text-sm text-brand-charcoal/70 dark:text-app-muted">
+                  {s.blurb}
+                </p>
 
-                {/* Blurb */}
-                <p className="mt-xs text-sm text-app-muted">{s.blurb}</p>
-
-                {/* Hover accent line */}
                 <span
                   aria-hidden="true"
                   className="
-                    absolute bottom-0 left-0 right-0 h-px
-                    bg-gradient-to-r from-white/0 via-white/20 to-white/0
-                    opacity-0 transition-opacity duration-200
-                    group-hover:opacity-100
-                  "
+                  absolute bottom-0 left-0 right-0 h-px
+                  bg-gradient-to-r from-black/0 via-black/10 to-black/0
+                  dark:from-white/0 dark:via-white/20 dark:to-white/0
+                  opacity-0 transition-opacity duration-200 group-hover:opacity-100
+                "
                 />
               </li>
             );
           })}
         </ol>
 
-        {/* Soft handoff CTA (keeps primary CTAs in hero/navbar) */}
         <div className="mt-lg text-center">
           <a
             href="#packages"
-            className="text-sm underline underline-offset-4 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-brand-primary rounded"
-            data-cta="see-packages"
-            data-location="how-it-works"
+            className="text-sm underline underline-offset-4 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary/40 rounded"
           >
             See packages
           </a>

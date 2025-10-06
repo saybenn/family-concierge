@@ -53,7 +53,16 @@ export default function FAQ({
           <p className={metaDim}>{subline}</p>
         </header>
 
-        <dl className="mx-auto divide-y divide-black/10 rounded-[var(--radius-2xl)] bg-white/70 backdrop-blur-md ring-1 ring-white/50 shadow-[var(--shadow-soft)]">
+        <dl
+          className="
+          mx-auto divide-y divide-black/10 dark:divide-white/10
+          rounded-[var(--radius-2xl)]
+          bg-white/70 dark:bg-brand-paper
+          backdrop-blur-md
+          ring-1 ring-white/50 dark:ring-white/10
+          shadow-[var(--shadow-soft)]
+        "
+        >
           {items.map((item, idx) => {
             const key = getKey(item, idx);
             // build panel/button IDs purely from stable data
@@ -77,7 +86,7 @@ export default function FAQ({
                     data-cta="faq-toggle"
                     data-question={item.id || item.q}
                   >
-                    <span className="text-base md:text-lg font-semibold text-brand-charcoal">
+                    <span className="text-base md:text-lg font-semibold text-brand-charcoal dark:text-brand-charcoal">
                       {item.q}
                     </span>
                     <svg
@@ -108,7 +117,7 @@ export default function FAQ({
                     ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
                   `}
                 >
-                  <div className="pb-md -mt-1 text-sm md:text-base text-brand-charcoal/80">
+                  <div className="pb-md -mt-1 text-sm md:text-base text-brand-charcoal/80 dark:text-app-muted">
                     {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
                   </div>
                 </dd>

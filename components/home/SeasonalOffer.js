@@ -75,19 +75,23 @@ export default function SeasonalOffer({
   if (mounted && !isActive) return null;
 
   return (
-    <section id={id} className={sectionDark} aria-labelledby={`${id}-heading`}>
+    <section
+      id={id}
+      className="pt-3xl md:pt-4xl bg-brand-paper text-brand-charcoal dark:bg-app-surface dark:text-app-text"
+      aria-labelledby={`${id}-heading`}
+    >
       <div className={containerX}>
         {/* Single center block (no extra max-width clamps) */}
         <div className="text-center">
           {/* Pill badge */}
-          <div className="inline-flex items-center gap-2 rounded-full ring-1 ring-white/15 px-3 py-1 text-xs text-app-muted">
+          <div className="inline-flex items-center gap-2 rounded-full ring-1 ring-black/10 dark:ring-white/15 px-3 py-1 text-xs text-brand-charcoal/70 dark:text-app-muted">
             <span className="h-2 w-2 rounded-full bg-primary" aria-hidden />
             Limited-time
           </div>
 
           <h3
             id={`${id}-heading`}
-            className="mt-sm text-xl md:text-2xl font-semibold text-app-text leading-tight text-balance"
+            className="mt-sm text-xl md:text-2xl font-semibold text-brand-charcoal dark:text-brand-paper leading-tight text-balance"
           >
             {title}
           </h3>
@@ -99,9 +103,12 @@ export default function SeasonalOffer({
           )}
 
           {code && (
-            <p className="mt-1 text-xs text-app-muted">
-              Use code <strong className="text-app-text">{code}</strong> at
-              checkout
+            <p className="mt-1 text-xs text-brand-charcoal/70 dark:text-app-muted">
+              Use code{" "}
+              <strong className="text-brand-charcoal dark:text-app-text">
+                {code}
+              </strong>{" "}
+              at checkout
             </p>
           )}
 

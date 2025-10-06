@@ -19,15 +19,20 @@ export default function Reviews({
 }) {
   return (
     <section className="container py-12 md:py-16">
-      <h2 className="text-2xl font-semibold">What customers say</h2>
+      <h2 className="text-2xl font-semibold text-brand-charcoal dark:text-app-text">
+        What customers say
+      </h2>
       <div className="mt-6 grid gap-6 md:grid-cols-3">
         {items.map((r, i) => (
           <figure
             key={i}
-            className="rounded-2xl border border-white/10 bg-[var(--surface)] p-5"
+            className="rounded-[var(--radius-2xl)] border border-black/10 dark:border-white/10
+                       bg-white/70 dark:bg-app-surface p-5 shadow-[var(--shadow-soft)]"
           >
-            <blockquote className="text-sm">“{r.quote}”</blockquote>
-            <figcaption className="mt-3 text-xs text-[var(--muted)]">
+            <blockquote className="text-sm text-brand-charcoal dark:text-app-text">
+              “{r.quote}”
+            </blockquote>
+            <figcaption className="mt-3 text-xs text-brand-charcoal/60 dark:text-app-muted">
               — {r.author}, {r.meta}
             </figcaption>
           </figure>

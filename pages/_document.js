@@ -1,21 +1,10 @@
 // pages/_document.js
 import { Html, Head, Main, NextScript } from "next/document";
-const themeScript = (function () {
-  try {
-    var t = localStorage.getItem("theme"); // 'dark' | 'light' | null
-    // Default = dark unless user forced light
-    var isDark = t !== "light";
-    document.documentElement.classList.toggle("dark", isDark);
-  } catch (e) {}
-})();
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta name="color-scheme" content="dark" />
-        <meta name="supported-color-schemes" content="dark light" />
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"

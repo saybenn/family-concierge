@@ -52,7 +52,7 @@ export function ServiceIcon({
         <Heart size={size} strokeWidth={strokeWidth} />
         <Check
           size={Math.max(12, size * 0.35)}
-          className="absolute -right-1 -top-1 bg-white rounded-full p-[2px]"
+          className="absolute -right-1 -top-1 bg-white dark:bg-app-surface rounded-full p-[2px]"
           strokeWidth={2}
         />
       </div>

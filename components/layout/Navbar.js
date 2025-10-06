@@ -2,31 +2,41 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Button from "../ui/Button";
+import BrandLogo from "../ui/BrandLogo";
 
 const NAV_LINKS = [
   { href: "#packages", label: "Packages" },
   { href: "#faq", label: "FAQ" },
 ];
+
 const base =
   "sticky top-0 z-50 border-b transition-colors md:supports-[backdrop-filter]:backdrop-blur";
 
-const atTop =
-  // On-hero state: transparent-ish, LIGHT text
-  "bg-brand-ink/40 text-brand-paper border-transparent " +
-  // If backdrop-filter isn’t supported, use a light translucent paper instead of dark
-  "supports-[not(backdrop-filter:blur(0px))]:bg-brand-paper/85 " +
-  // Slight ring for separation on iOS
-  "ring-0 supports-[not(backdrop-filter:blur(0px))]:ring-1 supports-[not(backdrop-filter:blur(0px))]:ring-black/5";
+// Light-first, dark overrides
+const atTop = [
+  // LIGHT: soft light bar so it reads as “light mode” immediately
+  "bg-brand-paper/92 text-brand-charcoal",
+  "border-black/10 shadow-sm",
+
+  // add a touch more opacity if needed on very dark heroes:
+  // "bg-brand-paper/96",
+
+  // DARK: keep the subtle translucent dark you had
+  "dark:bg-app-surface/90 dark:text-app-text dark:border-white/10",
+
+  // keep blur desktop-only (prevents iOS mud)
+  // (blur is already in `base` via md:supports-[backdrop-filter]:backdrop-blur)
+].join(" ");
 
 const scrolledCls =
-  // Off-hero state: light surface, DARK text
-  "bg-brand-ink/65 text-brand-paper border-black/5 " +
-  "supports-[backdrop-filter]:backdrop-blur";
+  // Off-hero: solid surfaces for reliable contrast
+  "bg-brand-paper/80 text-brand-charcoal border-black/5 " +
+  "dark:bg-app-surface/90 dark:text-app-text dark:border-white/10";
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Scroll-aware background + shadow
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -34,7 +44,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu when hash changes (user navigates)
   useEffect(() => {
     const onHash = () => setOpen(false);
     window.addEventListener("hashchange", onHash);
@@ -43,7 +52,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Skip link for accessibility */}
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:left-4 focus:top-4 focus:rounded-md focus:bg-brand-charcoal focus:text-brand-cream focus:px-3 focus:py-2"
@@ -51,12 +59,11 @@ export default function Navbar() {
         Skip to content
       </a>
 
-      {/* FIX: clamp horizontal overflow at the header level */}
       <header
         role="banner"
         className={[
           "fixed top-0 inset-x-0 z-50 w-full overflow-x-clip transition-shadow",
-          scrolled ? "shadow-soft" : "",
+          scrolled ? "shadow-[var(--shadow-soft)]" : "",
         ].join(" ")}
       >
         <div className={[base, scrolled ? scrolledCls : atTop].join(" ")}>
@@ -64,21 +71,19 @@ export default function Navbar() {
             aria-label="Primary"
             className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
           >
-            {/* Brand */}
             <Link
               href="/"
               className="font-display text-xl md:text-2xl font-semibold tracking-tight"
             >
-              Unique Butler Service
+              <BrandLogo />
             </Link>
 
-            {/* Desktop links */}
             <div className="hidden md:flex items-center gap-8">
               {NAV_LINKS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm md:text-base hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-brand-primary rounded"
+                  className="text-sm md:text-base hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary/40 rounded"
                 >
                   {item.label}
                 </Link>
@@ -93,16 +98,14 @@ export default function Navbar() {
               </Button>
             </div>
 
-            {/* Mobile toggle */}
             <button
               type="button"
               aria-label="Toggle menu"
               aria-expanded={open}
               aria-controls="mobile-menu"
               onClick={() => setOpen((v) => !v)}
-              className="md:hidden inline-flex items-center justify-center rounded-lg border border-line-subtle px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-primary"
+              className="md:hidden inline-flex items-center justify-center rounded-lg border border-black/10 dark:border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary/40"
             >
-              {/* Hamburger / Close */}
               <span className="relative block w-5 h-4">
                 <span
                   className={[
@@ -126,7 +129,6 @@ export default function Navbar() {
             </button>
           </nav>
 
-          {/* Mobile panel (renders only when open → no width when closed) */}
           {open && (
             <div id="mobile-menu" className="md:hidden">
               <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pb-4">
@@ -136,7 +138,7 @@ export default function Navbar() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="w-full rounded-lg px-3 py-2 text-base bg-transparent hover:bg-brand-cream/60 dark:hover:bg-app-bg/60"
+                      className="w-full rounded-lg px-3 py-2 text-base hover:bg-brand-cream/60 dark:hover:bg-app-surface/80"
                     >
                       {item.label}
                     </Link>
@@ -161,7 +163,6 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Spacer to prevent content jumping under fixed header */}
       <div className="h-16" />
       <div id="main" />
     </>
