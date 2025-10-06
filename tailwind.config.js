@@ -6,7 +6,7 @@ module.exports = {
     "./components/**/*.{js,jsx,ts,tsx}",
     "./lib/**/*.{js,jsx,ts,tsx}",
   ],
-  darkMode: "class",
+  darkMode: "media",
 
   // ✅ In v4, keep non-token settings like `container` here if you use <Container />
   theme: {
